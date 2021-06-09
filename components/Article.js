@@ -87,9 +87,75 @@ const data = [
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
+  ,
+  {
+    title: 'Tik-Tok Life Hacks',
+    date: 'Oct 14th, 2020',
+    firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
+          hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
+          Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
+
+    secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+          hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+          hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+          hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+    thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  }
 ];
 
+function articleMaker({title, date, firstParagraph, secondParagraph, thirdParagraph})
+{
+  const articleTitle = document.createElement('div')
+  console.log(articleTitle)
+  const header = document.createElement('h2')
+  console.log(header)
+  const dateInside = document.createElement('p')
+  const paragraphOne = document.createElement('p')
+  const paragraphTwo = document.createElement('p')
+  const paragraphThree = document.createElement('p')
+  const spanTag = document.createElement('span')
+  //const expandButton = document.createElement('button');
+  //spanTag.appendChild(expandButton);
+
+  articleTitle.classList.add('article')
+  dateInside.classList.add('date')
+  spanTag.classList.add('expandButton')
+
+  header.textContent = title
+  dateInside.textContent = date
+  paragraphOne.textContent = firstParagraph
+  paragraphTwo.textContent = secondParagraph
+  paragraphThree.textContent = thirdParagraph
+  spanTag.textContent = '+'
+
+  articleTitle.appendChild(header)
+  articleTitle.appendChild(dateInside)
+  articleTitle.appendChild(paragraphOne)
+  articleTitle.appendChild(paragraphTwo)
+  articleTitle.appendChild(paragraphThree)
+  articleTitle.appendChild(spanTag)
+
+  console.log(document.querySelector('div.article'))
+  const grabButton = document.querySelector('.expandButton')
+  /*grabButton.addEventListener('click', () =>
+  {
+    document.querySelector('div.article').classList.toggle('article--open');
+  }
+  )*/
+
+return articleTitle
+}
+
+ data.forEach(e => {
+  const articles = document.querySelector('div.articles')
+  const newArticle = articleMaker(e)
+  articles.appendChild(newArticle)
+})
 /*
+
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
   and returns a DOM node looking like the one below:
