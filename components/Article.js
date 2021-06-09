@@ -139,12 +139,11 @@ function articleMaker({title, date, firstParagraph, secondParagraph, thirdParagr
   articleTitle.appendChild(spanTag)
 
   console.log(document.querySelector('div.article'))
-  const grabButton = document.querySelector('.expandButton')
-  /*grabButton.addEventListener('click', () =>
+  spanTag.addEventListener('click', () =>
   {
-    document.querySelector('div.article').classList.toggle('article--open');
+    articleTitle.classList.toggle('article-open');
   }
-  )*/
+  )
 
 return articleTitle
 }
